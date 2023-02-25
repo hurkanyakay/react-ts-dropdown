@@ -20,17 +20,6 @@ const useStyles = createUseStyles({
     paddingLeft: 10,
     paddingRight: 10,
     background: '#fff',
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      zIndex: 0,
-      top: '-1px',
-      left: '-1px',
-      right: '-1px',
-      bottom: '-1px',
-      border: '1px solid rgb(124,141,207)',
-      borderRadius: 14
-    },
     '& .text': {
       color: 'rgb(127,131,133)'
     }
