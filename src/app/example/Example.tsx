@@ -1,9 +1,9 @@
 import React from 'react';
 import { useExample } from '~/app/shared/example';
-import './example.css';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
 import OutsideAlerter from './clickoutside';
+import useStyles from './example.style';
 
 export default function Example() {
   const [state, list, openDropdown, selected, setSelected] = useExample();
@@ -18,12 +18,13 @@ export default function Example() {
     setSelected(String(i));
     openDropdown(false);
   }
+  const classes = useStyles();
 
   return (
-    <div className="example">
+    <div className={classes.example}>
       <OutsideAlerter action={() => onClickOutside()}>
         <>
-          <button className="dropdown" onClick={onClickText}>
+          <button className={classes.dropdown} onClick={onClickText}>
             <div className="text">{list[parseInt(selected)]}</div>
             <div>
               {!state ? (
@@ -35,11 +36,11 @@ export default function Example() {
           </button>
 
           {state && (
-            <div className="content-container">
-              <div className="content">
+            <div className={classes.contentContainer}>
+              <div className={classes.content}>
                 {list.map((r, i) => (
                   <div
-                    className={selected === String(i) ? 'item-selected item' : 'item'}
+                    className={selected === String(i) ? classes.itemSelected : classes.item}
                     key={r}
                     onClick={() => selectItem(i)}
                   >
